@@ -10,8 +10,10 @@ Code, Compile, Run and Debug online from anywhere in world.
 
 int main()
 {
-    int i,t,n;
-    scanf("%d%d",&t,&n);
-    for(i=1;i<=n;i++)
-    printf("%d * %d =%d\n",i,t,i*t);
+    int a;
+    scanf("%d", &a);
+    if((a % 400 == 0) || (a % 4 == 0) && (a % 100!= 0))
+    printf("Leap year");
+    else
+    printf("Not a Leap year");
 }

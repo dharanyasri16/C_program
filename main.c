@@ -10,12 +10,9 @@ Code, Compile, Run and Debug online from anywhere in world.
 
 int main()
 {
-    int n,c=0;
-    scanf("%d",&n);
-    while(n!=0)
-    {
-        n=n/10;
-        c++;
-    }
-    printf("%d",c);
+    int n1,n2,sum=0,i;
+    scanf("%d%d",&n1,&n2);
+    for(i=n1;i<=n2;i++)
+     sum=sum+i;
+     printf("%d",sum);
 }

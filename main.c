@@ -12,10 +12,8 @@ int main()
 {
     int a;
     scanf("%d",&a);
-    if(a>0)
-    printf("Number is %d : Positive",a);
-    else if(a<0)
-    printf("Number is %d : Negative",a);
+    if(a % 2 == 0 )
+    printf("Even");
     else
-    printf("Number is 0");
+    printf("Odd");
 }

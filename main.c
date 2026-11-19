@@ -10,9 +10,21 @@ Code, Compile, Run and Debug online from anywhere in world.
 
 int main()
 {
-    int n1,n2,sum=0,i;
-    scanf("%d%d",&n1,&n2);
-    for(i=n1;i<=n2;i++)
-     sum=sum+i;
-     printf("%d",sum);
+    int n,i,c=0;
+    scanf("%d",&n);
+    if(n==1)
+    {
+    printf("Neither prime nor composite nummber");
+    return 0;
+    }
+    for(i=2;i<=n/2;i++)
+    {
+        if(n%2==0)
+        {c++;
+        printf("Not a prime number");
+        break;
+        }
+    }
+    if(c==0)
+    printf("Prime Number");
 }

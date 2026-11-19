@@ -8,101 +8,137 @@ Code, Compile, Run and Debug online from anywhere in world.
 *******************************************************************************/
 #include <stdio.h>
 
-/* read and print array (check: scanf needs &n) */
-void readPrint() {
-    int n, i;
-    scanf("%d", &n);
-    int arr[n];
-    for (i = 0; i < n; i++) scanf("%d", &arr[i]);
-    for (i = 0; i < n; i++) printf("%d ", arr[i]);
-    printf("\n");
+/* 1: square of stars */
+void p1(int n) {
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col < n; col++) printf("*");
 }
 
-/* sum of array */
-void arraySum() {
-    int n, i, sum = 0;
-    scanf("%d", &n);
-    int arr[n];
-    for (i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-        sum += arr[i];
-    }
-    printf("sum of elements: %d\n", sum);
+/* 2: right triangle */
+void p2(int n) {
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col <= row; col++) printf("*");
 }
 
-/* average of elements */
-void arrayAvg() {
-    int n, i, sum = 0;
-    scanf("%d", &n);
-    int arr[n];
-    for (i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-        sum += arr[i];
-    }
-    float avg = (float)sum / n;
-    printf("avg of elements: %.2f\n", avg);
+/* 3: inverted right triangle */
+void p3(int n) {
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col < n - row; col++) printf("*");
 }
 
-/* maximum of elements */
-void arrayMax() {
-    int n, i, max;
-    scanf("%d", &n);
-    int arr[n];
-    for (i = 0; i < n; i++) scanf("%d", &arr[i]);
-    max = arr[0];
-    for (i = 1; i < n; i++)
-        if (arr[i] > max) max = arr[i];
-    printf("Maximum of element: %d\n", max);
-}
-
-/* minimum of elements */
-void arrayMin() {
-    int n, i, min;
-    scanf("%d", &n);
-    int arr[n];
-    for (i = 0; i < n; i++) scanf("%d", &arr[i]);
-    min = arr[0];
-    for (i = 1; i < n; i++)
-        if (arr[i] < min) min = arr[i];
-    printf("Minimum of element: %d\n", min);
-}
-
-/* two dimensional array */
-void print2D() {
-    int row, col, i, j;
-    scanf("%d %d", &row, &col);
-    int arr[row][col];
-    for (i = 0; i < row; i++)
-        for (j = 0; j < col; j++)
-            scanf("%d", &arr[i][j]);
-    printf("output is:\n");
-    for (i = 0; i < row; i++) {
-        for (j = 0; j < col; j++)
-            printf("%d ", arr[i][j]);
-        printf("\n");
+/* 4: pyramid (fixed) */
+void p4(int n) {
+    for (int row = 0; row < n; row++, printf("\n")) {
+        for (int col = 0; col < n - row - 1; col++) printf(" ");
+        for (int col = 0; col < 2 * row + 1; col++) printf("*");
     }
 }
 
-/* sum of two dimensional array */
-void sum2D() {
-    int row, col, i, j, sum = 0;
-    scanf("%d %d", &row, &col);
-    int arr[row][col];
-    for (i = 0; i < row; i++)
-        for (j = 0; j < col; j++) {
-            scanf("%d", &arr[i][j]);
-            sum += arr[i][j];
-        }
-    printf("sum is: %d\n", sum);
+/* 5: parallelogram leaning right */
+void p5(int n) {
+    for (int row = 0; row < n; row++, printf("\n")) {
+        for (int col = 0; col < row; col++) printf(" ");
+        for (int col = 0; col < n; col++) printf("*");
+    }
 }
 
-int main() {
-    // Call ONE at a time, since each reads its own input
-    arraySum();
-    // arrayAvg();
-    // arrayMax();
-    // arrayMin();
-    // print2D();
-    // sum2D();
+/* 6: parallelogram leaning left */
+void p6(int n) {
+    for (int row = 0; row < n; row++, printf("\n")) {
+        for (int col = 0; col < n - row - 1; col++) printf(" ");
+        for (int col = 0; col < n; col++) printf("*");
+    }
+}
+
+/* 7: right-aligned triangle */
+void p7(int n) {
+    for (int row = 0; row < n; row++, printf("\n")) {
+        for (int col = 0; col < n - row - 1; col++) printf(" ");
+        for (int col = 0; col <= row; col++) printf("*");
+    }
+}
+
+/* 8: butterfly top half (fixed gap) */
+void p8(int n) {
+    for (int row = 0; row < n; row++, printf("\n")) {
+        for (int col = 0; col <= row; col++) printf("*");
+        for (int col = 0; col < 2 * (n - row - 1); col++) printf(" ");
+        for (int col = 0; col <= row; col++) printf("*");
+    }
+}
+
+/* 9: n x n of 1s */
+void p9(int n) {
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col < n; col++) printf("1 ");
+}
+
+/* 10: each row repeats row number */
+void p10(int n) {
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col < n; col++) printf("%d ", row + 1);
+}
+
+/* 11: each row 1..n */
+void p11(int n) {
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col < n; col++) printf("%d ", col + 1);
+}
+
+/* 12: 1, 12, 123... */
+void p12(int n) {
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col <= row; col++) printf("%d ", col + 1);
+}
+
+/* 13: n..1 shrinking (fixed spacing) */
+void p13(int n) {
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col < n - row; col++) printf("%d ", n - col);
+}
+
+/* 14: Floyd's triangle */
+void p14(int n) {
+    int c = 1;
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col <= row; col++) printf("%d ", c++);
+}
+
+/* 15: inverted 1..k */
+void p15(int n) {
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col < n - row; col++) printf("%d ", col + 1);
+}
+
+/* 16: continuous numbers, 2-digit */
+void p16(int n) {
+    int m = 1;
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col < n; col++) printf("%02d ", m++);
+}
+
+/* 17: row number repeated row+1 times */
+void p17(int n) {
+    for (int row = 0; row < n; row++, printf("\n"))
+        for (int col = 0; col <= row; col++) printf("%d ", row + 1);
+}
+
+int main(void) {
+    int n, choice;
+    void (*patterns[])(int) = {p1, p2, p3, p4, p5, p6, p7, p8, p9,
+                               p10, p11, p12, p13, p14, p15, p16, p17};
+
+    printf("Enter pattern number (1-17): ");
+    if (scanf("%d", &choice) != 1 || choice < 1 || choice > 17) {
+        printf("Invalid choice\n");
+        return 1;
+    }
+    printf("Enter n: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Invalid n\n");
+        return 1;
+    }
+
+    patterns[choice - 1](n);
     return 0;
 }

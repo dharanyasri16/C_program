@@ -10,11 +10,12 @@ Code, Compile, Run and Debug online from anywhere in world.
 
 int main()
 {
-    int i,n;
+    int n,c=0;
     scanf("%d",&n);
-    for(i=1;i<=n;i++)
+    while(n!=0)
     {
-        if(n%i==0)
-        printf("%d",i);
+        n=n/10;
+        c++;
     }
+    printf("%d",c);
 }
